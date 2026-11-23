@@ -229,18 +229,44 @@ class GatesTest {
             assertEquals(model, SwitchGates.R_ANDROID_DIFFERS, s23Color.find(SwitchGates.ID_ANDROID)!!.finding.reason)
         }
 
-        // Galaxy A56: every system is Android 17. "Update One UI first", and the installd gate has nothing to say.
-        val older = on(bar("SM-A566B", "a56x", SocProps(manufacturer = "Samsung", model = "s5e8855")))
-        assertEquals(Profiles.A56, older.profile)
+        // OxygenOS 16 on every bar and flip phone (Profiles.withOxygen16): the Galaxy A56 and S25 Edge on One UI 8.5,
+        // whose other systems are all Android 17, are no longer told to update One UI first either.
+        val a16Phones = listOf(
+            Triple("SM-A566B", "a56x", Profiles.A56) to SocProps(manufacturer = "Samsung", model = "s5e8855"),
+            Triple("SM-S937B", "psq", Profiles.S_EDGE_8750) to SocProps(manufacturer = "QTI", model = "SM8750"),
+        )
+        for ((ids, soc) in a16Phones) {
+            val (model, device, profile) = ids
+            val f = bar(model, device, soc)
+            val r = on(f)
+            assertEquals(profile, r.profile)
+            assertEquals(model, Level.OK, r.level(SwitchGates.ID_ANDROID))
+            assertEquals(model, Level.OK, r.level(SwitchGates.ID_INSTALLD))
+            assertEquals(model, SwitchGates.R_IMAGE_NOTHING, r.find(SwitchGates.ID_IMAGE)!!.finding.reason)
+            val withOxygen = on(f, stage(profile, Images.ID_OXYGEN16))
+            assertEquals(model, Images.OXYGEN16, withOxygen.image)
+            assertEquals(
+                model, listOf(Level.OK, Level.OK, Level.OK),
+                listOf(SwitchGates.ID_ANDROID, SwitchGates.ID_INSTALLD, SwitchGates.ID_IMAGE).map { withOxygen.level(it) },
+            )
+            val a17 = on(f, stage(profile))
+            assertEquals(model, 37, a17.image!!.sdk)
+            assertEquals(model, SwitchGates.R_ANDROID_DIFFERS, a17.find(SwitchGates.ID_ANDROID)!!.finding.reason)
+        }
+
+        // Galaxy Z Fold7: every system is Android 17 (no OxygenOS on the folds). "Update One UI first", and the installd
+        // gate has nothing to say.
+        val older = on(bar("SM-F966B", "q7q", SocProps(manufacturer = "QTI", model = "SM8750")))
+        assertEquals(Profiles.FOLD7, older.profile)
         val android = older.find(SwitchGates.ID_ANDROID)!!.finding
         assertEquals(Level.BLOCK to SwitchGates.R_ANDROID_OLDER, android.level to android.reason)
-        assertTrue(android.detail, android.detail.contains("the systems for the Galaxy A56 are Android 17 (SDK 37)"))
+        assertTrue(android.detail, android.detail.contains("the systems for the Galaxy Z Fold7 are Android 17 (SDK 37)"))
         assertEquals(Level.OK, older.level(SwitchGates.ID_INSTALLD))
-        val plain = Plain.of(android, null, Profiles.A56, PlainFacts(phoneAndroid = "16"))
+        val plain = Plain.of(android, null, Profiles.FOLD7, PlainFacts(phoneAndroid = "16"))
         assertEquals("Update One UI first", plain.title)
-        assertEquals("The systems for your Galaxy A56 need Android 17. Your phone has Android 16: update One UI, then open OneOS again.", plain.line)
+        assertEquals("The systems for your Galaxy Z Fold7 need Android 17. Your phone has Android 16: update One UI, then open OneOS again.", plain.line)
         assertEquals(FixAction.NONE, plain.action)
-        assertEquals("The systems for your Galaxy A56 need Android 17: update One UI, then open OneOS again.", Plain.of(android, null, Profiles.A56).line)
+        assertEquals("The systems for your Galaxy Z Fold7 need Android 17: update One UI, then open OneOS again.", Plain.of(android, null, Profiles.FOLD7).line)
         // The longest phone name keeps the line within its limit.
         for (p in Profiles.BUILT_IN) {
             val line = Plain.of(android, null, p, PlainFacts(phoneAndroid = "16")).line

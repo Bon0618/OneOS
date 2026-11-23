@@ -461,7 +461,11 @@ class SystemsFragment : Fragment() {
         val entries = listOfNotNull(
             // HyperOS 4 Global (0.5.27, tested on the Galaxy A36) first, with its own artwork, on the phones that offer it.
             CatalogEntry(hyperGlobal.shortName, hyperGlobal, R.drawable.os_hyperos_global, true).takeIf { available.any { it.id == hyperGlobal.id } },
-            CatalogEntry(oxygen.name, oxygen, R.drawable.os_oxygenos, true).takeIf { available.any { it.id == oxygen.id } },
+            // Since every bar and flip phone lists it (Profiles.withOxygen16), only on the phone's own Android version (or
+            // when it is the system set up here), so the phones on One UI 9 see no card they cannot switch to.
+            CatalogEntry(oxygen.name, oxygen, R.drawable.os_oxygenos, true).takeIf {
+                available.any { it.id == oxygen.id } && (android.os.Build.VERSION.SDK_INT == oxygen.sdk || oxygen.id == setUpId)
+            },
             // OriginOS 7 (0.4.73, experimental) only on its phones (the Snapdragon S23 to S26 series, the Exynos S24 and S24+, and Z Fold7/8).
             CatalogEntry(origin.name, origin, R.drawable.os_originos, true).takeIf { available.any { it.id == origin.id } },
             // LineageOS 24 (0.5.06, experimental) only on the phones that offer it.

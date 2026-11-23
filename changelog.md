@@ -801,6 +801,17 @@ battery drain fixed.**
   HyperOS files: HyperOS started its status bar and home screen before OneOS's sizes were on. Both now restart once
   when that happens.
 
+Unreleased (Android 16 phones): **OxygenOS 16 on every Galaxy bar and flip phone that is still on One UI 8.0 or 8.5.**
+- The Galaxy S26, S25 (S25 Edge included), S24 and FE phones, the A27, A36, A56 and A57 and the Z Flip5 to Flip8 offered
+  only Android 17 systems, so on One UI 8 (Android 16) they had nothing to switch to and were told to update One UI.
+  They now offer OxygenOS 16 (Android 16), untested on them, like the S22s, S23s and A phones already did. On One
+  UI 9 nothing changes: the Android version gate shows OxygenOS 16 only on Android 16, and switching still needs One
+  UI 8.0's or 8.5's installd table. The folds keep their Android 17 systems only (OxygenOS 16 has no fold overlays).
+- The OxygenOS 16 card in Systems shows only on Android 16 (or where it is the system set up), so phones on One UI 9
+  get no card they cannot switch to.
+- Android 15 (One UI 7) is still refused: there is no Android 15 system or file set, and a guest must have the
+  phone's own Android version.
+
 New in 0.5.36: **HyperOS fits the screen on QHD Ultras, SMS on more phones, PixelOS corners, safer returns.**
 - **HyperOS on the S24 Ultra, S25 Ultra and other QHD phones left at FHD+:** the system ran the whole QHD screen
   with the density meant for FHD+, and HyperOS's own scaling then made everything about a quarter too big

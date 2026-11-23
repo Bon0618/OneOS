@@ -46,7 +46,9 @@ class ApkSeriesTest {
                 // 0.5.35: PixelOS on every One UI 9 bar phone.
                 PackageSets.ID_PIXELOS,
                 // 0.5.28: the S26 FE takes the Z Flip7's systems, its Pixel 9 Pro XL set among them.
-                PackageSets.ID_PIXEL9_SULTRA),
+                PackageSets.ID_PIXEL9_SULTRA,
+                // OxygenOS 16 on every bar and flip phone, for the ones on One UI 8 (Profiles.withOxygen16).
+                PackageSets.ID_OXYGEN16),
             ApkSeries.S26.setIds().intersect(ApkSeries.S25.setIds()),
         )
         for (s in ApkSeries.entries) assertNotEquals(s.id, PackageSets.ALL.size, s.setIds().size)

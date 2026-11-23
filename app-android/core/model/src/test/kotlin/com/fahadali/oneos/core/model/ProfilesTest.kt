@@ -43,6 +43,9 @@ class ProfilesTest {
         val oneui = ImageChoice(Images.ID_ONEUI95, PackageSets.ID_ONEUI95, tested = false)
         // 0.5.35: PixelOS 17 before One UI 9.5 on every bar phone on One UI 9 (owner).
         val px = ImageChoice(Images.ID_PIXELOS_ONYX, PackageSets.ID_PIXELOS, tested = false)
+        // OxygenOS 16 (Android 16) on every bar and flip phone for the ones on One UI 8, right after HyperOS 4 Global
+        // (Profiles.withOxygen16), untested; never on a fold.
+        val oxy = ImageChoice(Images.ID_OXYGEN16, PackageSets.ID_OXYGEN16, tested = false)
         val f8u = Profiles.F8U
         assertEquals(listOf("SM-F976", "q8q", "SM8850"), listOf(f8u.modelPrefix, f8u.codename, f8u.socModel))
         assertEquals(FormFactor.FOLD, f8u.form)
@@ -77,7 +80,7 @@ class ProfilesTest {
         // 0.4.51: the IN build only (the debloated Find X9 Ultra build retired), tested where that one was.
         val sUltra = listOf(xinT)
         // 0.4.10: and the Pixel 11 Pro image with its own set, untested.
-        assertEquals(sUltra + ImageChoice(Images.ID_PIXEL_KODIAK, PackageSets.ID_PIXEL_SULTRA, tested = false) + ifxT + lineage + hyper + hyperHk + nothing + origin + px + oneui, s26.choices)
+        assertEquals(sUltra + ImageChoice(Images.ID_PIXEL_KODIAK, PackageSets.ID_PIXEL_SULTRA, tested = false) + ifxT + lineage + hyper + hyperHk + oxy + nothing + origin + px + oneui, s26.choices)
         assertTrue(s26.testedWithAnyImage && s26.enabled)
 
         val s25 = Profiles.S_ULTRA_8750
@@ -85,7 +88,7 @@ class ProfilesTest {
         assertEquals(FormFactor.BAR, s25.form)
         // 0.4.22: and the Pixel 9 Pro XL image with its own set, untested.
         val pixel9 = ImageChoice(Images.ID_PIXEL_KOMODO, PackageSets.ID_PIXEL9_SULTRA, tested = false)
-        assertEquals(sUltra + pixel9 + ifxT + lineage + hyper + hyperHk + nothing + origin + px + oneui, s25.choices)
+        assertEquals(sUltra + pixel9 + ifxT + lineage + hyper + hyperHk + oxy + nothing + origin + px + oneui, s25.choices)
         assertTrue(s25.testedWithAnyImage && s25.enabled)
 
         // Galaxy S25 (0.3.4): the S Ultra image and set (tested since 0.4.7), the S25 Ultra's notes.
@@ -95,7 +98,7 @@ class ProfilesTest {
         assertEquals(listOf("SM-S931", "pa1q", "SM8750"), listOf(s25Base.modelPrefix, s25Base.codename, s25Base.socModel))
         assertEquals(FormFactor.BAR, s25Base.form)
         // 0.5.28: HyperOS 4 Global and One UI 9.5 ran on an S25 (reports of 2026-11-20).
-        assertEquals(sUltra + pixel9 + ifxT + lineage + hyper + hyperHk.copy(tested = true) + nothing + origin + px + oneui.copy(tested = true), s25Base.choices)
+        assertEquals(sUltra + pixel9 + ifxT + lineage + hyper + hyperHk.copy(tested = true) + oxy + nothing + origin + px + oneui.copy(tested = true), s25Base.choices)
         assertTrue(s25Base.testedWithAnyImage && s25Base.enabled)
         assertEquals(s25.notes, s25Base.notes)
         assertEquals(listOf("profile-vendor-older"), s25Base.notes.map { it.id })
@@ -114,7 +117,7 @@ class ProfilesTest {
         assertEquals(listOf("s-plus-8750", "Galaxy S25+"), listOf(s25Plus.id, s25Plus.label))
         assertEquals(listOf("SM-S936", "pa2q", "SM8750"), listOf(s25Plus.modelPrefix, s25Plus.codename, s25Plus.socModel))
         assertEquals(FormFactor.BAR, s25Plus.form)
-        assertEquals(listOf(xin, pixel9, ifx, lineage, hyper, hyperHk, nothing, origin, px, oneui), s25Plus.choices)
+        assertEquals(listOf(xin, pixel9, ifx, lineage, hyper, hyperHk, oxy, nothing, origin, px, oneui), s25Plus.choices)
         assertEquals(s25.notes, s25Plus.notes)
         // Galaxy Z Fold8 (0.4.10): the Fold's images and sets, untested; no older-vendor note (vendor API 202504).
         val fold8 = Profiles.FOLD8
@@ -151,6 +154,7 @@ class ProfilesTest {
                 ifx,
                 lineage,
                 hyper, hyperHk,
+                oxy,
                 nothing,
                 origin,
                 px,
@@ -167,7 +171,7 @@ class ProfilesTest {
         val s24u = Profiles.S_ULTRA_8650
         assertEquals(listOf("s-ultra-8650", "Galaxy S24 Ultra"), listOf(s24u.id, s24u.label))
         assertEquals(listOf("SM-S928", "e3q", "SM8650"), listOf(s24u.modelPrefix, s24u.codename, s24u.socModel))
-        assertEquals(listOf(xin, pixel9, ifxT, lineage, hyper, hyperHk, nothing, origin, px, oneui), s24u.choices) // 0.4.82: OriginOS 7, untested
+        assertEquals(listOf(xin, pixel9, ifxT, lineage, hyper, hyperHk, oxy, nothing, origin, px, oneui), s24u.choices) // 0.4.82: OriginOS 7, untested
         assertEquals(listOf(Profiles.ID_NOTE_OLDER_VENDOR), s24u.notes.map { it.id })
         assertTrue(s24u.notes.single().detail.contains("vendor API 34 (Android 14) and kernel 6.1"))
         // Galaxy S26+ (0.4.12): the S26's images and sets, untested, no notes (vendor API 202504).
@@ -196,7 +200,7 @@ class ProfilesTest {
         assertEquals(listOf("flip7", "Galaxy Z Flip7"), listOf(flip7.id, flip7.label))
         assertEquals(listOf("SM-F766", "b7s", "s5e9955"), listOf(flip7.modelPrefix, flip7.codename, flip7.socModel))
         assertEquals(FormFactor.FLIP, flip7.form)
-        assertEquals(listOf(xin, ImageChoice(Images.ID_PIXEL_KOMODO, PackageSets.ID_PIXEL9_SULTRA, tested = false), ifx, lineage, hyper, hyperHk, oneui), flip7.choices)
+        assertEquals(listOf(xin, ImageChoice(Images.ID_PIXEL_KOMODO, PackageSets.ID_PIXEL9_SULTRA, tested = false), ifx, lineage, hyper, hyperHk, oxy, oneui), flip7.choices)
         // The Galaxy A57 (0.4.29): the first A-series phone, Exynos, a bar phone with the Flip7's images.
         val a57 = Profiles.A57
         assertEquals(listOf("a57", "Galaxy A57"), listOf(a57.id, a57.label))
@@ -205,7 +209,7 @@ class ProfilesTest {
         // 0.4.31: a tester's session reached home on the CN ColorOS build (2026-10-30),
         // the first A-series report; the rest is still the Flip7's list.
         assertEquals(
-            listOf(xinT, pixel9, ifx, lineage, hyper, hyperHk, ImageChoice(Images.ID_NOTHING_ASTEROIDS, PackageSets.ID_NOTHING_A, tested = false), px, oneui), // 0.5.15: Nothing OS (A series); 0.5.22: One UI 9.5, last
+            listOf(xinT, pixel9, ifx, lineage, hyper, hyperHk, oxy, ImageChoice(Images.ID_NOTHING_ASTEROIDS, PackageSets.ID_NOTHING_A, tested = false), px, oneui), // 0.5.15: Nothing OS (A series); 0.5.22: One UI 9.5, last
             a57.choices,
         )
         assertTrue(a57.testedWithAnyImage)
@@ -235,7 +239,7 @@ class ProfilesTest {
         // 0.4.31: reported on the global ColorOS build and Infinity-X (camera broken on both),
         // so it is no longer the S23's untested list.
         assertEquals(
-            listOf(xinT, pixel9, ifxT, lineage, hyper, hyperHk, oneui),
+            listOf(xinT, pixel9, ifxT, lineage, hyper, hyperHk, oxy, oneui),
             flip5.choices,
         )
         assertEquals(listOf(Profiles.ID_NOTE_EXPECT_NO_START), flip5.notes.map { it.id })
@@ -399,7 +403,7 @@ class ProfilesTest {
         assertTrue(Profiles.S_EDGE_8750.choices.none { it.tested })
         // 0.4.83: the S24 (Exynos) went on to the S24 Ultra's systems; the FE phones keep these four.
         // 0.5.28: ColorOS (global) and HyperOS 4 Global ran on an S24 FE (reports of 2026-11-20).
-        assertEquals(listOf(xin.copy(tested = true), pixel9, ifx, lineage, hyper, hyperHk.copy(tested = true), px, oneui), Profiles.S_FE_9945.choices)
+        assertEquals(listOf(xin.copy(tested = true), pixel9, ifx, lineage, hyper, hyperHk.copy(tested = true), oxy, px, oneui), Profiles.S_FE_9945.choices)
         assertEquals(Profiles.S_FE_9945.choices.map { it.copy(tested = false) }, (Profiles.S_9945.choices - nothing - origin).map { it.copy(tested = false) })
         assertEquals(listOf("SM-S721", "r12s", "s5e9945"), listOf(Profiles.S_FE_9945.modelPrefix, Profiles.S_FE_9945.codename, Profiles.S_FE_9945.socModel))
         assertEquals(listOf(Images.ID_FIND_X9U_IN_1105, Images.ID_INFINITYX, Images.ID_LINEAGE, Images.ID_HYPEROS_LHASA, Images.ID_HYPEROS_HONGKONG, Images.ID_OXYGEN16, Images.ID_NOTHING_ASTEROIDS, Images.ID_PIXELOS_ONYX, Images.ID_ONEUI95), Profiles.A26.choices.map { it.imageId }) // 0.4.57: no Pixel 9 Pro XL; 0.4.66: HyperOS (owner)

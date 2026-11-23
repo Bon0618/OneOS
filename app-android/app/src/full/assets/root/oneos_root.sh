@@ -641,6 +641,35 @@ profile_set() {
         "a16 oxygenos16-cph2745") echo oxygen16 ;;
         "a16-s166 oxygenos16-cph2745") echo oxygen16 ;;
         "a17-5g oxygenos16-cph2745") echo oxygen16 ;;
+        # OxygenOS 16 (Android 16) on every bar and flip phone, for the ones still on One UI 8.0/8.5
+        # (Profiles.withOxygen16), untested there; the folds keep their Android 17 systems only.
+        "s-ultra-8850 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-8850 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-8850-jp oxygenos16-cph2745") echo oxygen16 ;;
+        "s-plus-8850 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-plus-9965 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-9965 oxygenos16-cph2745") echo oxygen16 ;;
+        "s26-fe oxygenos16-cph2745") echo oxygen16 ;;
+        "flip8 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-ultra-8750 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-8750 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-plus-8750 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-edge-8750 oxygenos16-cph2745") echo oxygen16 ;;
+        "s25-fe oxygenos16-cph2745") echo oxygen16 ;;
+        "s-ultra-8650 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-8650 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-plus-8650 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-9945 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-plus-9945 oxygenos16-cph2745") echo oxygen16 ;;
+        "s-fe-9945 oxygenos16-cph2745") echo oxygen16 ;;
+        "a27 oxygenos16-cph2745") echo oxygen16 ;;
+        "a36 oxygenos16-cph2745") echo oxygen16 ;;
+        "a56 oxygenos16-cph2745") echo oxygen16 ;;
+        "a57 oxygenos16-cph2745") echo oxygen16 ;;
+        "flip7 oxygenos16-cph2745") echo oxygen16 ;;
+        "flip7-fe oxygenos16-cph2745") echo oxygen16 ;;
+        "flip6 oxygenos16-cph2745") echo oxygen16 ;;
+        "flip5 oxygenos16-cph2745") echo oxygen16 ;;
         "a17 coloros17-findx9u-in-1105") echo x9u-in-1105-sultra ;;
         "a16-4g coloros17-findx9u-in-1105") echo x9u-in-1105-sultra ;;
         "a16 coloros17-findx9u-in-1105") echo x9u-in-1105-sultra ;;

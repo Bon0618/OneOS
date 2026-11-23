@@ -114,6 +114,12 @@
           "tested": false
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "nothingos5-metroid",
           "label": "Nothing OS 5.0, Metroid build",
           "set": "nothing-f8u",
@@ -183,6 +189,12 @@
           "image": "hyperos-hongkong",
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
+          "tested": false
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
           "tested": false
         },
         {
@@ -256,6 +268,12 @@
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
           "tested": true
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
         },
         {
           "image": "nothingos5-metroid",
@@ -387,6 +405,12 @@
           "image": "hyperos-hongkong",
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
+          "tested": false
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
           "tested": false
         },
         {
@@ -528,6 +552,12 @@
           "tested": false
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "nothingos5-metroid",
           "label": "Nothing OS 5.0, Metroid build",
           "set": "nothing-f8u",
@@ -597,6 +627,12 @@
           "image": "hyperos-hongkong",
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
+          "tested": false
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
           "tested": false
         },
         {
@@ -672,6 +708,12 @@
           "tested": false
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "nothingos5-metroid",
           "label": "Nothing OS 5.0, Metroid build",
           "set": "nothing-f8u",
@@ -741,6 +783,12 @@
           "image": "hyperos-hongkong",
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
+          "tested": false
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
           "tested": false
         },
         {
@@ -972,6 +1020,12 @@
           "tested": false
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "nothingos5-metroid",
           "label": "Nothing OS 5.0, Metroid build",
           "set": "nothing-f8u",
@@ -1044,6 +1098,12 @@
           "tested": false
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "nothingos5-metroid",
           "label": "Nothing OS 5.0, Metroid build",
           "set": "nothing-f8u",
@@ -1110,6 +1170,12 @@
           "tested": false
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "oneui95-s948b",
           "label": "One UI 9.5, Galaxy S26 Ultra build",
           "set": "oneui95",
@@ -1162,6 +1228,12 @@
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
           "tested": true
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
         },
         {
           "image": "nothingos5-asteroids",
@@ -1230,6 +1302,12 @@
           "tested": false
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "nothingos5-asteroids",
           "label": "Nothing OS 5.0, A series build",
           "set": "nothing-a",
@@ -1293,6 +1371,12 @@
           "image": "hyperos-hongkong",
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
+          "tested": false
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
           "tested": false
         },
         {
@@ -1458,6 +1542,12 @@
           "tested": false
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "nothingos5-metroid",
           "label": "Nothing OS 5.0, Metroid build",
           "set": "nothing-f8u",
@@ -1509,6 +1599,12 @@
           "image": "hyperos-hongkong",
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
+          "tested": false
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
           "tested": false
         },
         {
@@ -1680,6 +1776,12 @@
           "tested": false
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "oneui95-s948b",
           "label": "One UI 9.5, Galaxy S26 Ultra build",
           "set": "oneui95",
@@ -1731,6 +1833,12 @@
           "image": "hyperos-hongkong",
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
+          "tested": false
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
           "tested": false
         },
         {
@@ -1806,6 +1914,12 @@
           "tested": false
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "nothingos5-metroid",
           "label": "Nothing OS 5.0, Metroid build",
           "set": "nothing-f8u",
@@ -1876,6 +1990,12 @@
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
           "tested": true
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
         },
         {
           "image": "pixelos17-onyx",
@@ -2133,6 +2253,12 @@
           "image": "hyperos-hongkong",
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
+          "tested": false
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
           "tested": false
         },
         {
@@ -2460,6 +2586,12 @@
           "tested": false
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "nothingos5-asteroids",
           "label": "Nothing OS 5.0, A series build",
           "set": "nothing-a",
@@ -2589,6 +2721,12 @@
           "image": "hyperos-hongkong",
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
+          "tested": false
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
           "tested": false
         },
         {
@@ -3060,6 +3198,12 @@
           "tested": true
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "pixelos17-onyx",
           "label": "PixelOS 17, POCO F7 build",
           "set": "pixelos",
@@ -3171,6 +3315,12 @@
           "image": "hyperos-hongkong",
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
+          "tested": false
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
           "tested": false
         },
         {
@@ -3588,6 +3738,12 @@
           "tested": false
         },
         {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
+          "tested": false
+        },
+        {
           "image": "nothingos5-metroid",
           "label": "Nothing OS 5.0, Metroid build",
           "set": "nothing-f8u",
@@ -3657,6 +3813,12 @@
           "image": "hyperos-hongkong",
           "label": "HyperOS 4 Global",
           "set": "hyper-hk",
+          "tested": false
+        },
+        {
+          "image": "oxygenos16-cph2745",
+          "label": "OxygenOS 16, OnePlus CPH2745 build",
+          "set": "oxygen16",
           "tested": false
         },
         {

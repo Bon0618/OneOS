@@ -286,13 +286,24 @@ class CompatEvaluatorTest {
         assertTrue(a24.findings.none { it.level == Level.BLOCK })
         assertEquals(Verdict.WARNING, a24.verdict)
 
-        // Galaxy A56: every system is Android 17, so One UI 8.5 is too old for it, and still "not seen".
-        val a56 = eval(bar("SM-A566B", "a56x", SocProps(manufacturer = "Samsung", model = "s5e8855")))
-        assertEquals(Level.WARN, a56.level("oneui-unseen"))
-        val differs = a56.find(CompatEvaluator.ID_ANDROID_DIFFERS)!!
+        // OxygenOS 16 on every bar and flip phone (Profiles.withOxygen16): the Galaxy A56 and S25 Edge on One UI 8.5 too.
+        for ((model, device, soc) in listOf(
+            Triple("SM-A566B", "a56x", SocProps(manufacturer = "Samsung", model = "s5e8855")),
+            Triple("SM-S937B", "psq", SocProps(manufacturer = "QTI", model = "SM8750")),
+        )) {
+            val r = eval(bar(model, device, soc))
+            assertNull(model, r.find("oneui-unseen"))
+            assertNull(model, r.find(CompatEvaluator.ID_ANDROID_DIFFERS))
+            assertTrue(model, r.find(CompatEvaluator.ID_ANDROID_MATCHES)!!.detail.startsWith(oxygen.label))
+        }
+        // Galaxy Z Fold7: every system is Android 17 (no OxygenOS on the folds), so One UI 8.5 is too old for it, and
+        // still "not seen".
+        val fold7 = eval(bar("SM-F966B", "q7q", SocProps(manufacturer = "QTI", model = "SM8750")))
+        assertEquals(Level.WARN, fold7.level("oneui-unseen"))
+        val differs = fold7.find(CompatEvaluator.ID_ANDROID_DIFFERS)!!
         assertEquals("The systems for this phone need Android 17: update One UI first", differs.title)
-        assertTrue(differs.detail, differs.detail.contains("the systems for the Galaxy A56 are Android 17 (SDK 37)"))
-        assertNull(a56.find(CompatEvaluator.ID_ANDROID_MATCHES))
+        assertTrue(differs.detail, differs.detail.contains("the systems for the Galaxy Z Fold7 are Android 17 (SDK 37)"))
+        assertNull(fold7.find(CompatEvaluator.ID_ANDROID_MATCHES))
         // One UI 8.5 on a phone with no profile is not seen either.
         assertEquals(Level.WARN, eval(Fixtures.facts(model = "SM-S948B", device = "m3s", soc = SocProps(manufacturer = "Samsung", model = "s5e9955"), oneUi = "80500", sdk = 36)).level("oneui-unseen"))
     }
