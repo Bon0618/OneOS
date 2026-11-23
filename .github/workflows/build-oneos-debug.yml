@@ -10,7 +10,8 @@ on:
     branches: [android16-oxygenos]
 
 permissions:
-  contents: read
+  # contents: write publishes the APK to Releases, as Bon0618/sysmon does.
+  contents: write
   # The SESL libraries come from GitHub Packages (settings.gradle.kts): the job token reads them.
   packages: read
 
@@ -55,10 +56,20 @@ jobs:
       - name: OneOS debug APK
         run: ./gradlew --no-daemon :app:assembleFullDebug
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: OneOS-debug
-          path: app-android/app/build/outputs/apk/full/debug/*.apk
+      # A direct download, no zip and no sign-in: one release per version, the newest marked latest, the APK
+      # always under the same name so .../releases/latest/download/OneOS-android16.apk stays the same link.
+      - name: Publish APK to Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VER=$(sed -n 's/.*versionName = "\(.*\)".*/\1/p' app/build.gradle.kts | head -n 1)
+          TAG="android16-v${VER}"
+          cp app/build/outputs/apk/full/debug/app-full-debug.apk OneOS-android16.apk
+          gh release delete "$TAG" --yes --cleanup-tag || true
+          gh release create "$TAG" OneOS-android16.apk \
+            --title "OneOS ${VER} + Android 16 (debug, build #${{ github.run_number }})" \
+            --notes "OxygenOS 16 on every bar and flip Galaxy still on One UI 8.0/8.5 (branch ${{ github.ref_name }}, ${{ github.sha }}). Debug key: uninstall the official OneOS first." \
+            --target "${{ github.sha }}" --latest
 
       - uses: actions/upload-artifact@v4
         if: always()
