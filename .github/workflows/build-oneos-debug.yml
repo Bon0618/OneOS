@@ -32,10 +32,14 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - uses: android-actions/setup-android@v3
-
+      # The runner's own Android SDK (android-actions/setup-android@v3 asks for the retired "tools" package and fails).
       - name: Android 17 SDK platform (compileSdk 37)
-        run: sdkmanager --install "platforms;android-37"
+        run: |
+          SDKM="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$SDKM" --licenses > /dev/null || true
+          "$SDKM" --list 2>/dev/null | grep -E "platforms;android-3[67]" || true
+          "$SDKM" --install "platforms;android-37" "platform-tools"
+          echo "ANDROID_SDK_ROOT=$ANDROID_HOME" >> "$GITHUB_ENV"
 
       - uses: gradle/actions/setup-gradle@v4
 
